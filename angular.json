@@ -118,5 +118,15 @@
       }
     }
   },
-  "defaultProject": "elementsApp"
+  "defaultProject": "elementsApp",
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "inlineTemplate": true,
+        "inlineStyle": true,
+        "viewEncapsulation ": "Native",
+        "spec": false
+      }
+    }
+  }
 }
