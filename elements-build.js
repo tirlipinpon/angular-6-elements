@@ -5,7 +5,7 @@ const concat = require('concat');
   const files = [
     './dist/elementsApp/runtime.js',
     './dist/elementsApp/polyfills.js',
-    // './dist/elementsApp/scripts.js',
+    './dist/elementsApp/scripts.js',
     './dist/elementsApp/main.js',
   ];
 

@@ -4,11 +4,13 @@ import {Injector, NgModule} from '@angular/core';
 import { ButtonComponent } from './button/button.component';
 import {createCustomElement} from '@angular/elements';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './services/auth.service';
+import {CommonServiceService} from './services/common-service.service';
 
 @NgModule({
   declarations: [ButtonComponent],
   imports: [BrowserModule, HttpClientModule],
-  providers: [],
+  providers: [AuthService, CommonServiceService],
   entryComponents: [ButtonComponent]
 })
 export class AppModule {
