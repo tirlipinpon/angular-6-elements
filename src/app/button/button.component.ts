@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Injector, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AuthService} from '../services/auth.service';
@@ -27,6 +27,8 @@ import {CommonServiceService} from '../services/common-service.service';
 })
 export class ButtonComponent implements OnInit {
 
+  AppInjector: Injector;
+
   @Input()
   set counter(counter: number) {
     this._counter = counter;
@@ -41,18 +43,38 @@ export class ButtonComponent implements OnInit {
   dummy: string;
 
   constructor( // private authService: AuthService,
-              private commonServiceService: CommonServiceService) {
+    private commonServiceService: CommonServiceService,
+    injector: Injector) {
+    this.setAppInjector(injector);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-  getData() { this.data$ = this.commonServiceService.getData(this.counter);  }
+  getData() {
+    this.data$ = this.commonServiceService.getData(this.counter);
+  }
 
-  increase() { this.counter++;  }
+  increase() {
+    this.counter++;
+  }
 
-  descrease() { this.counter--;  }
+  descrease() {
+    this.counter--;
+  }
 
   auth() {
+    const appLoadService = this.AppInjector.get(AuthService);
+    console.log(appLoadService);
     // this.authService.login();
+  }
+
+  setAppInjector(injector: Injector) {
+    if (this.AppInjector) {
+      // Should not happen
+      console.error('Programming error: AppInjector was already set');
+    } else {
+      this.AppInjector = injector;
+    }
   }
 }
