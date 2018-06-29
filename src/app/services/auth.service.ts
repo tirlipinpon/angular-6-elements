@@ -8,8 +8,8 @@ import {Router} from '@angular/router';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: 'CzQviuKdgRkTbLHdHGYhR7PbN8I25cAM',
-    domain: 'app-new.eu.auth0.com',
+    clientID: 'xxx',
+    domain: 'xxx.auth0.com',
     responseType: 'token id_token',
     audience: 'https://app-new.eu.auth0.com/userinfo',
     redirectUri: 'http://localhost:3000/callback',
